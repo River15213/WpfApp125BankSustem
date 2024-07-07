@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp12_5BankSustem.Model;
 
 namespace WpfApp125BankSustem.Model
 {
@@ -16,6 +17,7 @@ namespace WpfApp125BankSustem.Model
         public double BalanceAccount { get; set; }
         public string StatusAccount { get; set; }
 
+
         public BankData(string fullName, T numberAccount, string typeAccount, double balanceAccount, string statusAccount)
         {
             Id = ++IdCount;
@@ -25,5 +27,6 @@ namespace WpfApp125BankSustem.Model
             BalanceAccount = balanceAccount;
             StatusAccount = statusAccount;
         }
+
     }
 }
