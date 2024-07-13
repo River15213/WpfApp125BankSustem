@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp12_5BankSustem.PagesMain;
+using WpfApp12_5BankSustem.Services;
 using WpfApp125BankSustem.Model;
 using WpfApp125BankSustem.Services;
 
@@ -76,6 +77,12 @@ namespace WpfApp125BankSustem.PagesMain
                 MessageBox.Show("Выберете клиента для перевода.");
             }
 
+        }
+
+        private void LogBankButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowLogAccauntBank windowLogAccauntBank = new WindowLogAccauntBank();
+            windowLogAccauntBank.Show();
         }
     }
 }

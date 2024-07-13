@@ -11,6 +11,7 @@
         <Button x:Name="TransferMoneyButton" Content="Перевести деньги" HorizontalAlignment="Left" Margin="56,233,0,0" VerticalAlignment="Top" Height="38" Width="127" Click="TransferMoneyButton_Click"/>
         <Button x:Name="CloseAccountButton" Content="Закрыть счет" HorizontalAlignment="Left" Margin="613,228,0,0" VerticalAlignment="Top" Height="38" Width="134" Click="CloseAccountButton_Click"/>
         <Button x:Name="ButtonOpenAcc" Content="Открыть счет" HorizontalAlignment="Left" Margin="613,311,0,0" VerticalAlignment="Top" Height="40" Width="134" Click="ButtonOpenAcc_Click"/>
+        <Button x:Name="LogBankButton" Content="Журнал действий" HorizontalAlignment="Left" Margin="56,313,0,0" VerticalAlignment="Top" Width="127" Height="36" Click="LogBankButton_Click"/>
 
     </Grid>
 </Window>

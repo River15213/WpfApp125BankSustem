@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 using System.Windows;
 using WpfApp12_5BankSustem.Model;
 using WpfApp12_5BankSustem.Model.@interface;
+using WpfApp12_5BankSustem.Services;
 using WpfApp125BankSustem.Model;
 
 namespace WpfApp125BankSustem.Services
 {
     internal class StandartClientBankWPF<T> : ITransferClientBank<T>
     {
+        private ActionLog actionLog;
+        private AlertsBank alertsBank;
+
+        public StandartClientBankWPF()
+        {
+            actionLog = ActionLog.ListLog;
+            alertsBank = new AlertsBank();
+
+            alertsBank.OnAlertsAccauntBank += x => actionLog.AddLog(x);
+        }
+
         public List<BankData<T>> bankClientBase()
         {
             List<BankData<T>> bankClients = new List<BankData<T>>();
@@ -23,6 +35,7 @@ namespace WpfApp125BankSustem.Services
             bankClients.Add(clientOne);
             bankClients.Add(clientTwo);
             bankClients.Add(clientThree);
+            alertsBank.OnAlerts($"Клиенты сохранены");
             return bankClients;
 
         }
@@ -33,6 +46,7 @@ namespace WpfApp125BankSustem.Services
             if (findClient != null)
             {
                 client.Remove(findClient);
+                alertsBank.OnAlerts($"Клиент {id} удален.");
             }
             
         }
@@ -51,6 +65,8 @@ namespace WpfApp125BankSustem.Services
                 double balanceAss = random.NextDouble() * 1000000;
                 BankData<T> client = new BankData<T>(fullname, (T)Convert.ChangeType(numberAcc, typeof(T)), typeAcc.TypeAccount, balanceAss, statusAcc);
                 clientBank.Add(client);
+                alertsBank.OnAlerts($"Клиент {client.FullName} с типом счета {client.TypeAccount} сохранен.");
+
             }
             else
             {
@@ -70,6 +86,8 @@ namespace WpfApp125BankSustem.Services
                 {
                     transferFromClient.BalanceAccount -= sumTransfer;
                     transferToClient.BalanceAccount += sumTransfer;
+                    alertsBank.OnAlerts($"Сумма {sumTransfer}, переведена c {transferFromClient.FullName} на {transferToClient.FullName}");
+
                 }
                 else
                 {
