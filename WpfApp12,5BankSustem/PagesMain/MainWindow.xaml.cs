@@ -70,6 +70,7 @@ namespace WpfApp125BankSustem.PagesMain
                     clietnBank.TransferMoneyClient(client, idClientFromTransfer, windowTransferClients.numberAccTransfer, windowTransferClients.sumTransfer);
                     dataGridBankData.ItemsSource = client;
                     dataGridBankData.Items.Refresh();
+                    MessageBox.Show($"Перевод {windowTransferClients.sumTransfer}р зачислен");
                 }
             }
             else
