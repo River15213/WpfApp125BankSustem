@@ -38,7 +38,6 @@ namespace WpfApp125BankSustem.PagesMain
                 var idClient = selectedUser.Id;
                 clietnBank.DeleteClient(client, idClient);
                 dataGridBankData.Items.Refresh();
-                MessageBox.Show("Клиент удален.");
             }
             else
             {
@@ -70,6 +69,7 @@ namespace WpfApp125BankSustem.PagesMain
                     clietnBank.TransferMoneyClient(client, idClientFromTransfer, windowTransferClients.numberAccTransfer, windowTransferClients.sumTransfer);
                     dataGridBankData.ItemsSource = client;
                     dataGridBankData.Items.Refresh();
+                   
                 }
             }
             else

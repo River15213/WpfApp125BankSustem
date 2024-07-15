@@ -37,7 +37,6 @@ namespace WpfApp125BankSustem.PagesMain
             if(ComboBoxTypeAcc.SelectedItem != null) 
             {
                 typeAccount = ComboBoxTypeAcc.Text;
-                MessageBox.Show("Клиент сохранен.");
                 DialogResult = true;
                 Close();
             }

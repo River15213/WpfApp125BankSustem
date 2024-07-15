@@ -22,6 +22,7 @@ namespace WpfApp125BankSustem.Services
             alertsBank = new AlertsBank();
 
             alertsBank.OnAlertsAccauntBank += x => actionLog.AddLog(x);
+            alertsBank.OnAlertsAccauntBank += x => alertsBank.ShowAlert(x);
         }
 
         public List<BankData<T>> bankClientBase()
@@ -46,7 +47,7 @@ namespace WpfApp125BankSustem.Services
             if (findClient != null)
             {
                 client.Remove(findClient);
-                alertsBank.OnAlerts($"Клиент {id} удален.");
+                alertsBank.OnAlerts($"Клиент {findClient.FullName} удален.");
             }
             
         }
