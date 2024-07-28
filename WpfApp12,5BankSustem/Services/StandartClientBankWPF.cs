@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppMyExceptionBankSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,13 +61,24 @@ namespace WpfApp125BankSustem.Services
             var findClient = clientBank.FirstOrDefault(x => x.FullName == fullname && x.TypeAccount == typeAcc.TypeAccount);
             if (findClient == null)
             {
+                try
+                {
+                    int letterFullname = fullname.Count();
+                    if (letterFullname < 10 || letterFullname > 60) throw new InputNameException();
+                    Random random = new Random();
+                    int numberAcc = random.Next(10000, 1000000);
+                    double balanceAss = random.NextDouble() * 1000000;
+                    BankData<T> client = new BankData<T>(fullname, (T)Convert.ChangeType(numberAcc, typeof(T)), typeAcc.TypeAccount, balanceAss, statusAcc);
+                    clientBank.Add(client);
+                    alertsBank.OnAlerts($"Клиент {client.FullName} с типом счета {client.TypeAccount} сохранен.");
 
-                Random random = new Random();
-                int numberAcc = random.Next(10000, 1000000);
-                double balanceAss = random.NextDouble() * 1000000;
-                BankData<T> client = new BankData<T>(fullname, (T)Convert.ChangeType(numberAcc, typeof(T)), typeAcc.TypeAccount, balanceAss, statusAcc);
-                clientBank.Add(client);
-                alertsBank.OnAlerts($"Клиент {client.FullName} с типом счета {client.TypeAccount} сохранен.");
+                }
+                catch (InputNameException e)
+                {
+                    alertsBank.OnAlerts($"Error: {e.Message}");
+
+                }
+
 
             }
             else
