@@ -7,7 +7,7 @@ using WpfApp12_5BankSustem.Model;
 
 namespace WpfApp125BankSustem.Model
 {
-    internal class BankData<T>
+    public class BankData<T>
     {
         private static int IdCount = 0;
         public int Id { get; set; }

@@ -7,7 +7,7 @@ using WpfApp125BankSustem.Model;
 
 namespace WpfApp12_5BankSustem.Model.@interface
 {
-    internal interface ITransferClientBank<in T>
+    public interface ITransferClientBank<in T>
     {
         void TransferMoneyClient(List<BankData<int>> clientBank, T transferFromId, T transferToNumberTransfer, double sumTransfer);
 

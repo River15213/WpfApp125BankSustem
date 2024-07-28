@@ -7,7 +7,7 @@ using WpfApp125BankSustem.Model;
 
 namespace WpfApp12_5BankSustem.Model.@interface
 {
-    internal interface ITypeAccount<out T>
+    public interface ITypeAccount<out T>
     {
         string TypeAccount { get; }
     }

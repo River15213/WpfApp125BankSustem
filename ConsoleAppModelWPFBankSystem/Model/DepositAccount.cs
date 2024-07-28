@@ -7,8 +7,8 @@ using WpfApp12_5BankSustem.Model.@interface;
 
 namespace WpfApp12_5BankSustem.Model
 {
-    internal class NoDepositAccount : ITypeAccount<string>
+    public class DepositAccount : ITypeAccount<string> 
     {
-        public string TypeAccount => "Недепозитный";
+        public string TypeAccount => "Депозитный";
     }
 }

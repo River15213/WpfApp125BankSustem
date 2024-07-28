@@ -9,4 +9,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleAppModelWPFBankSystem\ConsoleAppModelWPFBankSystem.csproj" />
+    <ProjectReference Include="..\ConsoleAppMyExceptionBankSystem\ConsoleAppMyExceptionBankSystem.csproj" />
+  </ItemGroup>
+
 </Project>
